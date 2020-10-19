@@ -89,6 +89,7 @@ class Rotors:
             return self.a_to_z
 
 
+
 class rotor_from_name():
     def __init__(self, name):
         self.rotor_instance = Rotors()
@@ -98,39 +99,94 @@ class rotor_from_name():
     def encode_right_to_left(self, char):
         for i, item in enumerate(self.a_to_z):
             if item == char:
+                print(f'char is {char}')
+                print(f'encoded to {item} in right to left')
                 return self.named_rotor[i]
 
     def encode_left_to_right(self, char):
         for i, item in enumerate(self.named_rotor):
             if item == char:
+                print(f'char is {char}')
+                print(f'encoded to {item} in left to right')
                 return self.a_to_z[i]
 
+
+class ReflectorFromName:
+    def __init__(self, name):
+        self.reflector_instance = Rotors()
+        self.a_to_z = self.reflector_instance.get_rotor('A to Z')
+        self.named_reflector = self.reflector_instance.get_rotor(name)
+
+    def encode_reflector(self, char):
+        for i, item in enumerate(self.named_reflector):
+            if item == char:
+                print(f'char is {char}')
+                print(f'encoded to {item} in reflector')
+                return self.a_to_z[i]
+
+
+class TraverseRotors():
+    def __init__(self, rotors, reflector):
+        self.rotor_list = rotors.split()
+        self.reflector = reflector
+
+    def traverse_rotors_right_to_left(self, char):
+        for each_rotor in reversed(self.rotor_list):
+            traverse = rotor_from_name(each_rotor)
+            char = traverse.encode_right_to_left(char)
+        return char
+
+    def traverse_reflector(self, char):
+        traverse = ReflectorFromName(self.reflector)
+        char = traverse.encode_reflector(char)
+        return char
+
+    def traverse_rotors_left_to_right(self, char):
+        for each_rotor in self.rotor_list:
+            traverse = rotor_from_name(each_rotor)
+            char = traverse.encode_left_to_right(char)
+        return char
 
 # You will need to write more classes, which can be done here or in separate files, you choose.
 
 if __name__ == "__main__":
-    plugboard = Plugboard()
+    # plugboard = Plugboard()
+    #
+    # plugboard.add(PlugLead("SZ"))
+    # plugboard.add(PlugLead("GT"))
+    # plugboard.add(PlugLead("DV"))
+    # plugboard.add(PlugLead("KU"))
+    # plugboard.add(PlugLead("BY"))
+    # plugboard.add(PlugLead("AQ"))
+    # plugboard.add(PlugLead("EM"))
+    # plugboard.add(PlugLead("HC"))
+    # plugboard.add(PlugLead("DF"))
+    # plugboard.add(PlugLead("IJ"))
+    # plugboard.add(PlugLead("PL"))
+    #
+    # assert (plugboard.encode("K") == "U")
+    # assert (plugboard.encode("A") == "Q")
+    # assert (plugboard.encode("P") == "P")
+    #
+    # rotor = rotor_from_name("I")
+    # assert(rotor.encode_right_to_left("A") == "E")
+    # assert(rotor.encode_right_to_left("O") == "Y")
+    # assert(rotor.encode_right_to_left("S") == "S")
+    # assert(rotor.encode_left_to_right("A") == "U")
+    # assert(rotor.encode_left_to_right("Q") == "H")
+    # assert(rotor.encode_left_to_right("N") == "K")
+    #
+    # rotorII = rotor_from_name("II")
+    # assert(rotorII.encode_right_to_left("A") == "A")
+    # assert(rotorII.encode_right_to_left("O") == "M")
+    # assert(rotorII.encode_right_to_left("S") == "Z")
+    # assert(rotorII.encode_left_to_right("A") == "A")
+    # assert(rotorII.encode_left_to_right("Q") == "Q")
+    # assert(rotorII.encode_left_to_right("N") == "T")
 
-    plugboard.add(PlugLead("SZ"))
-    plugboard.add(PlugLead("GT"))
-    plugboard.add(PlugLead("DV"))
-    plugboard.add(PlugLead("KU"))
-    plugboard.add(PlugLead("BY"))
-    plugboard.add(PlugLead("AQ"))
-    plugboard.add(PlugLead("EM"))
-    plugboard.add(PlugLead("HC"))
-    plugboard.add(PlugLead("DF"))
-    plugboard.add(PlugLead("IJ"))
-    plugboard.add(PlugLead("PL"))
+    traverse_all = TraverseRotors("I II III", "B")
+    encoded_character_r = traverse_all.traverse_rotors_right_to_left('A')
+    encoded_character_ref = traverse_all.traverse_reflector(encoded_character_r)
+    encoded_character_l = traverse_all.traverse_rotors_left_to_right(encoded_character_ref)
 
-    assert (plugboard.encode("K") == "U")
-    assert (plugboard.encode("A") == "Q")
-    assert (plugboard.encode("P") == "P")
-
-    rotor = rotor_from_name("I")
-    assert(rotor.encode_right_to_left("A") == "E")
-    assert(rotor.encode_right_to_left("O") == "Y")
-    assert(rotor.encode_right_to_left("S") == "S")
-    assert(rotor.encode_left_to_right("A") == "U")
-    assert(rotor.encode_left_to_right("Q") == "H")
-    assert(rotor.encode_left_to_right("N") == "K")
+    print(encoded_character_l)
