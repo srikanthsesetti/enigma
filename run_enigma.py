@@ -1,5 +1,5 @@
 from enigma import *
-from traverse import TraverseRotors
+from traverse import *
 from plugboard import *
 
 
