@@ -1,7 +1,5 @@
 # You will need to write more classes, which can be done here or in separate files, you choose.
-from enigma import *
-from traverse import TraverseRotors
-from plugboard import *
+from run_enigma import *
 
 if __name__ == "__main__":
     # plugboard = Plugboard()
@@ -37,12 +35,28 @@ if __name__ == "__main__":
     # assert(rotorII.encode_left_to_right("Q") == "Q")
     # assert(rotorII.encode_left_to_right("N") == "T")
 
-    plugboard = Plugboard()
-    plugboard.ten_pairs("HL MO AJ CX BZ SR NI YW DG PK")
-    plugboard_encoded_initial = plugboard.encode('H')
-    traverse_all = TraverseRotors("I II III", "B", "A A A")
-    encoded_character_r = traverse_all.traverse_rotors_right_to_left(plugboard_encoded_initial)
-    encoded_character_ref = traverse_all.traverse_reflector(encoded_character_r)
-    encoded_character_l = traverse_all.traverse_rotors_left_to_right(encoded_character_ref)
-    plugboard_encoded_end = plugboard.encode(encoded_character_l)
-    print(plugboard_encoded_end)
+    ten_pairs = input("Enter up to 10 plug lead combinations")
+    split_pairs = ten_pairs.split()
+    while len(split_pairs) > 10:
+        ten_pairs = input("You can only enter upto 10 plug lead combinations")
+        split_pairs = ten_pairs.split()
+
+    rotors = input("Enter 3 or 4 rotors to use")
+    split_rotors = rotors.split()
+    while (len(split_rotors) != 3) and (len(split_rotors) != 4):
+        rotors = input("You can only enter 3 or 4 rotors to use")
+        split_rotors = rotors.split()
+
+    reflector = input("Enter the reflector to use")
+    while len(reflector) > 1:
+        reflector = input("You can only enter one reflector to use")
+
+    initial_rotor_settings = input("Enter initial rotor settings")
+    split_settings = initial_rotor_settings.split()
+    while len(split_settings) != len(split_rotors):
+        initial_rotor_settings = input("You can only enter same number of initial rotor settings as the rotors")
+        split_settings = initial_rotor_settings.split()
+
+    message = input("Enter the character to encode")
+
+    run_enigma(ten_pairs, rotors, reflector, initial_rotor_settings, message)
