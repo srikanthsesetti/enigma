@@ -37,7 +37,7 @@ if __name__ == "__main__":
     # assert(rotorII.encode_left_to_right("Q") == "Q")
     # assert(rotorII.encode_left_to_right("N") == "T")
 
-    traverse_all = TraverseRotors("I II III IV", "B")
+    traverse_all = TraverseRotors("I II III", "B", "A A B")
     encoded_character_r = traverse_all.traverse_rotors_right_to_left('A')
     encoded_character_ref = traverse_all.traverse_reflector(encoded_character_r)
     encoded_character_l = traverse_all.traverse_rotors_left_to_right(encoded_character_ref)

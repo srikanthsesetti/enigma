@@ -47,23 +47,36 @@ class Rotors:
         if name == 'A to Z':
             return self.a_to_z
 
+
 class rotor_from_name:
     def __init__(self, name):
         self.rotor_instance = Rotors()
         self.named_rotor = self.rotor_instance.get_rotor(name)
         self.a_to_z = self.rotor_instance.get_rotor('A to Z')
 
-    def encode_right_to_left(self, char):
+    def encode_right_to_left(self, rotor, char):
         for i, item in enumerate(self.a_to_z):
             if item == char:
                 print(f'char is {char}')
                 print(f'encoded to {item} in right to left')
-                return self.named_rotor[i]
+                return rotor[i]
 
-    def encode_left_to_right(self, char):
-        for i, item in enumerate(self.named_rotor):
+    def encode_left_to_right(self, rotor, char):
+        for i, item in enumerate(rotor):
             if item == char:
                 print(f'char is {char}')
                 print(f'encoded to {item} in left to right')
                 return self.a_to_z[i]
+
+    def set_rotor_position(self, char):
+        out_rotor = []
+        char_index = self.a_to_z.index(char)
+        for i in range(len(self.named_rotor)):
+            c = self.named_rotor[i]
+            i_position = ord(c)
+            if (i_position >= 65) and (i_position <= 90):
+                c = chr(((i_position - 65 + char_index) % 26) + 65)
+            out_rotor.append(c)
+        return out_rotor
+
 
