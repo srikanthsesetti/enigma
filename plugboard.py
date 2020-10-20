@@ -37,3 +37,9 @@ class Plugboard:
     def add(self, plugs):
         if not self.is_plugboard_full():
             self.plug_connections.update(plugs.dict_map)
+
+    def ten_pairs(self, full_list):
+        plug_list = full_list.split()
+        for plug in plug_list:
+            create_plug = PlugLead(plug)
+            self.add(create_plug)

@@ -1,10 +1,10 @@
 # You will need to write more classes, which can be done here or in separate files, you choose.
 from enigma import *
 from traverse import TraverseRotors
+from plugboard import *
 
 if __name__ == "__main__":
     # plugboard = Plugboard()
-    #
     # plugboard.add(PlugLead("SZ"))
     # plugboard.add(PlugLead("GT"))
     # plugboard.add(PlugLead("DV"))
@@ -37,9 +37,12 @@ if __name__ == "__main__":
     # assert(rotorII.encode_left_to_right("Q") == "Q")
     # assert(rotorII.encode_left_to_right("N") == "T")
 
-    traverse_all = TraverseRotors("I II III", "B", "A A B")
-    encoded_character_r = traverse_all.traverse_rotors_right_to_left('A')
+    plugboard = Plugboard()
+    plugboard.ten_pairs("HL MO AJ CX BZ SR NI YW DG PK")
+    plugboard_encoded_initial = plugboard.encode('H')
+    traverse_all = TraverseRotors("I II III", "B", "A A A")
+    encoded_character_r = traverse_all.traverse_rotors_right_to_left(plugboard_encoded_initial)
     encoded_character_ref = traverse_all.traverse_reflector(encoded_character_r)
     encoded_character_l = traverse_all.traverse_rotors_left_to_right(encoded_character_ref)
-
-    print(encoded_character_l)
+    plugboard_encoded_end = plugboard.encode(encoded_character_l)
+    print(plugboard_encoded_end)
