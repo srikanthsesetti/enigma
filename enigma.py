@@ -57,6 +57,6 @@ if __name__ == "__main__":
         initial_rotor_settings = input("You can only enter same number of initial rotor settings as the rotors")
         split_settings = initial_rotor_settings.split()
 
-    message = input("Enter the character to encode")
+    message = input("Enter the message to encode")
 
     run_enigma(ten_pairs, rotors, reflector, initial_rotor_settings, message)
