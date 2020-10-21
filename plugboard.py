@@ -29,9 +29,12 @@ class Plugboard:
         return len(self.plug_connections) >= self.max_plugboard_size
 
     def encode(self, character):
+        print(f'char is {character}')
         if character in self.plug_connections:
+            print(f'encode in plugboard to {self.plug_connections[character]}')
             return self.plug_connections[character]
         else:
+            print(f'No connection so returning {character}')
             return character
 
     def add(self, plugs):

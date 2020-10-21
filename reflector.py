@@ -1,9 +1,8 @@
-from rotors import *
-
+from config import *
 
 class ReflectorFromName:
     def __init__(self, name):
-        self.reflector_instance = Rotors()
+        self.reflector_instance = Config()
         self.a_to_z = self.reflector_instance.get_rotor('A to Z')
         self.named_reflector = self.reflector_instance.get_rotor(name)
 

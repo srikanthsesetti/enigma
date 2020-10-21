@@ -11,10 +11,11 @@ def run_enigma(ten_pairs, rotors, reflector, initial_rotor_settings, message):
 
     for char in message:
         plugboard_encoded_initial = plugboard.encode(char) # "H"
+        # move_right_rotor_by_one = traverse_rotors.move_right_rotor_by_one()
         encoded_character_rtl = traverse_rotors.traverse_rotors_right_to_left(plugboard_encoded_initial)
         encoded_character_ref = traverse_rotors.traverse_reflector(encoded_character_rtl)
         encoded_character_ltr = traverse_rotors.traverse_rotors_left_to_right(encoded_character_ref)
         plugboard_encoded_end = plugboard.encode(encoded_character_ltr)
         coded_message += plugboard_encoded_end
-    print(f'Encoded message is: {coded_message}')
+    return coded_message
 

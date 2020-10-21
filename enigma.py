@@ -35,33 +35,41 @@ if __name__ == "__main__":
     # assert(rotorII.encode_left_to_right("Q") == "Q")
     # assert(rotorII.encode_left_to_right("N") == "T")
 
-    ten_pairs = input("Enter up to 10 plug lead combinations")
-    split_pairs = ten_pairs.upper().split()
-    while len(split_pairs) > 10:
-        ten_pairs = input("You can only enter upto 10 plug lead combinations")
-        split_pairs = ten_pairs.split()
-    ten_pairs = ten_pairs.upper()
+    # ten_pairs = input("Enter up to 10 plug lead combinations")
+    # split_pairs = ten_pairs.upper().split()
+    # while len(split_pairs) > 10:
+    #     ten_pairs = input("You can only enter upto 10 plug lead combinations")
+    #     split_pairs = ten_pairs.split()
+    # ten_pairs = ten_pairs.upper()
+    #
+    # rotors = input("Enter 3 or 4 rotors to use")
+    # split_rotors = rotors.upper().split()
+    # while (len(split_rotors) != 3) and (len(split_rotors) != 4):
+    #     rotors = input("You can only enter 3 or 4 rotors to use")
+    #     split_rotors = rotors.split()
+    # rotors = rotors.upper()
+    #
+    # reflector = input("Enter the reflector to use")
+    # while len(reflector) > 1:
+    #     reflector = input("You can only enter one reflector to use")
+    # reflector = reflector.upper()
+    #
+    # initial_rotor_settings = input("Enter initial rotor settings")
+    # split_settings = initial_rotor_settings.upper().split()
+    # while len(split_settings) != len(split_rotors):
+    #     initial_rotor_settings = input("You can only enter same number of initial rotor settings as the rotors")
+    #     split_settings = initial_rotor_settings.split()
+    # initial_rotor_settings = initial_rotor_settings.upper()
+    #
+    # message = input("Enter the message to encode")
+    # message = message.upper()
 
-    rotors = input("Enter 3 or 4 rotors to use")
-    split_rotors = rotors.upper().split()
-    while (len(split_rotors) != 3) and (len(split_rotors) != 4):
-        rotors = input("You can only enter 3 or 4 rotors to use")
-        split_rotors = rotors.split()
-    rotors = rotors.upper()
+    # coded_message = run_enigma(ten_pairs, rotors, reflector, initial_rotor_settings, message)
+    # print(f'Coded message is: {coded_message}')
 
-    reflector = input("Enter the reflector to use")
-    while len(reflector) > 1:
-        reflector = input("You can only enter one reflector to use")
-    reflector = reflector.upper()
+    """ setting default values
+    Delete at the end
+    """
 
-    initial_rotor_settings = input("Enter initial rotor settings")
-    split_settings = initial_rotor_settings.upper().split()
-    while len(split_settings) != len(split_rotors):
-        initial_rotor_settings = input("You can only enter same number of initial rotor settings as the rotors")
-        split_settings = initial_rotor_settings.split()
-    initial_rotor_settings = initial_rotor_settings.upper()
-
-    message = input("Enter the message to encode")
-    message = message.upper()
-
-    run_enigma(ten_pairs, rotors, reflector, initial_rotor_settings, message)
+    coded_message = run_enigma("HL MO AJ CX BZ SR NI YW DG PK", "I II III", "B", "A A A", "A")
+    print(f'Coded message is: {coded_message}')
