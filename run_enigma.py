@@ -15,7 +15,7 @@ def run_enigma(ten_pairs, rotors, reflector, initial_rotor_settings, message):
         encoded_character_rtl = traverse_rotors.traverse_rotors_right_to_left(plugboard_encoded_initial)
         encoded_character_ref = traverse_rotors.traverse_reflector(encoded_character_rtl)
         encoded_character_ltr = traverse_rotors.traverse_rotors_left_to_right(encoded_character_ref)
-        plugboard_encoded_end = plugboard.encode(encoded_character_ltr)
+        position, plugboard_encoded_end = plugboard.encode(encoded_character_ltr)
         coded_message += plugboard_encoded_end
     return coded_message
 

@@ -7,27 +7,28 @@ class rotor_from_name:
         self.named_rotor = self.rotor_instance.get_rotor(name)
         self.a_to_z = self.rotor_instance.get_rotor('A to Z')
 
-    def encode_right_to_left(self, rotor, char):
+    def encode_right_to_left(self, rotor, position, character):
+        print(f'position in encode rtl: {position}')
+        character = rotor[position]
         for i, item in enumerate(self.a_to_z):
-            print(self.a_to_z)
-            if item == char:
-                print(f'char is {char}')
+            if item == character:
+                print(f'char encode rtl is {character}')
                 print(f'encoded to {item} in right to left')
-                return rotor[i]
+                return i, self.a_to_z[i]
 
-    def encode_left_to_right(self, rotor, char):
+    def encode_left_to_right(self, rotor, position, character):
+
         for i, item in enumerate(rotor):
-            if item == char:
-                print(f'char is {char}')
+            if item == character:
+                print(f'char in encode ltr is {character}')
                 print(f'encoded to {item} in left to right')
-                return self.a_to_z[i]
+                return i, self.a_to_z[i]
 
     def set_rotor_position(self, char):
         """ Sets position of each rotor
         Takes the character the rotor needs to be set to
         """
         print(char)
-        print(self.named_rotor)
         out_rotor = ()
         char_index = self.a_to_z.index(char)  # get the index value for the character from a to z
         # for i in range(len(self.named_rotor)):
@@ -40,21 +41,19 @@ class rotor_from_name:
         # for i in self.named_rotor:
         #     character = self.named_rotor[(self.named_rotor.index(char) + 1) % 26]
         #     out_rotor.append(character)
-        print(char_index)
         out_rotor = self.named_rotor[char_index:] + self.named_rotor[: char_index]
         self.a_to_z = self.a_to_z[char_index:] + self.a_to_z[: char_index]
-
-        print(out_rotor)
-        print(self.a_to_z)
-        return out_rotor
+        return out_rotor, self.a_to_z
 
 
 def set_all_rotor_positions(rotors_list, rotor_positions):
     rotor_list = rotors_list.split()
     rotor_positions = rotor_positions.split()
     positioned_rotor_list = []
+    positioned_a_to_z_list = []
     for i in range(len(rotor_list)):
         rotor_i = rotor_from_name(rotor_list[i])
-        positioned_rotor = rotor_i.set_rotor_position(rotor_positions[i])
+        positioned_rotor, positioned_a_to_z = rotor_i.set_rotor_position(rotor_positions[i])
         positioned_rotor_list.append(positioned_rotor)
-    return positioned_rotor_list
+        positioned_a_to_z_list.append(positioned_a_to_z)
+    return positioned_rotor_list, positioned_a_to_z_list

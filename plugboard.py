@@ -1,3 +1,6 @@
+import string
+
+
 class PlugLead:
     def __init__(self, mapping):
         self.dict_map = {}
@@ -29,13 +32,18 @@ class Plugboard:
         return len(self.plug_connections) >= self.max_plugboard_size
 
     def encode(self, character):
-        print(f'char is {character}')
+        print(f'char in plugboard is {character}')
         if character in self.plug_connections:
+            print(f'char in plugboard if: {character}')
             print(f'encode in plugboard to {self.plug_connections[character]}')
-            return self.plug_connections[character]
+            position = string.ascii_lowercase.index(self.plug_connections[character].lower())
+            # position = list(self.plug_connections.keys()).index(character)
+            print(f'positio in plugboard: {position}')
+            return position, self.plug_connections[character]
         else:
             print(f'No connection so returning {character}')
-            return character
+            position = string.ascii_lowercase.index(character.lower())
+            return position, character
 
     def add(self, plugs):
         if not self.is_plugboard_full():

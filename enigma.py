@@ -71,5 +71,5 @@ if __name__ == "__main__":
     Delete at the end
     """
 
-    coded_message = run_enigma("HL MO AJ CX BZ SR NI YW DG PK", "I II III", "B", "A A A", "A")
+    coded_message = run_enigma("HL MO AJ CX BZ SR NI YW DG PK", "I II III", "B", "A A B", "A")
     print(f'Coded message is: {coded_message}')
