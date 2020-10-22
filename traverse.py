@@ -16,7 +16,14 @@ class TraverseRotors:
             multiple_rotors.set_multiple_rotor_positions(all_rotors_info, all_a_to_z_info, rotor_positions)
 
     def traverse_rotors_right_to_left(self, position, character):
+        # turn the right rotor before encoding
+        turn_right_rotor = SingleRotor()
+        self.positioned_rotor_list[-1], self.positioned_a_to_z_list[-1] = turn_right_rotor.turn_rotor\
+            (self.positioned_rotor_list[-1], self.positioned_a_to_z_list[-1])
+
         for each_rotor, each_a_to_z in zip(reversed(self.positioned_rotor_list), reversed(self.positioned_a_to_z_list)):
+            # check if the rotor is on notch
+
             traverse = rotor_from_name()
             position, character = traverse.encode_right_to_left(each_rotor, each_a_to_z, position, character)
         return position, character

@@ -22,6 +22,11 @@ class Config:
                   'S', 'B', 'N', 'M', 'H', 'L')
         self.a_to_z = ('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S',
                        'T', 'U', 'V', 'W', 'X', 'Y', 'Z')
+        self.i_notch = 'Q'
+        self.ii_notch = 'E'
+        self.iii_notch = 'V'
+        self.iv_notch = 'J'
+        self.v_notch = 'Z'
 
     def get_rotor(self, name):
         if name == 'beta':
@@ -46,3 +51,19 @@ class Config:
             return self.c
         if name == 'A to Z':
             return self.a_to_z
+
+    def get_rotor_notch(self, name):
+        if name == 'I':
+            return self.i_notch
+        if name == 'II':
+            return self.ii_notch
+        if name == 'III':
+            return self.iii_notch
+        if name == 'IV':
+            return self.iv_notch
+        if name == 'V':
+            return self.v_notch
+        if name == 'beta':
+            return ''
+        if name == 'gamma':
+            return ''
