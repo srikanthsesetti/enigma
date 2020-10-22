@@ -21,13 +21,22 @@ class TraverseRotors:
             multiple_rotors.set_multiple_rotor_positions(all_rotors_info, all_a_to_z_info, rotor_positions)
 
     def traverse_rotors_right_to_left(self, position, character):
-        # turn the right rotor before encoding
-        turn_right_rotor = SingleRotor()
-        self.positioned_rotor_list[-1], self.positioned_a_to_z_list[-1] = \
-            turn_right_rotor.turn_rotor(self.positioned_rotor_list[-1], self.positioned_a_to_z_list[-1])
-
         # turn the right rotor and the one next to it before if it is on notch
-
+        if self.positioned_rotor_list[-1][0] == self.rotor_notch_list[-1]:
+            print('found notch')
+            # turn the right rotor before encoding
+            turn_right_rotor = SingleRotor()
+            self.positioned_rotor_list[-1], self.positioned_a_to_z_list[-1] = \
+                turn_right_rotor.turn_rotor(self.positioned_rotor_list[-1], self.positioned_a_to_z_list[-1])
+            # now turn the middle rotor
+            turn_middle_rotor = SingleRotor()
+            self.positioned_rotor_list[-2], self.positioned_a_to_z_list[-2] = \
+                turn_middle_rotor.turn_rotor(self.positioned_rotor_list[-2], self.positioned_a_to_z_list[-2])
+        else:
+            # turn the right rotor before encoding
+            turn_right_rotor = SingleRotor()
+            self.positioned_rotor_list[-1], self.positioned_a_to_z_list[-1] = \
+                turn_right_rotor.turn_rotor(self.positioned_rotor_list[-1], self.positioned_a_to_z_list[-1])
 
         for each_rotor, each_a_to_z, each_rotor_notch in zip(reversed(self.positioned_rotor_list), reversed(self.positioned_a_to_z_list), reversed(self.rotor_notch_list)):
             traverse = rotor_from_name()
