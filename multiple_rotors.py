@@ -15,7 +15,7 @@ class MultipleRotors:
             self.all_rotors_info.append(rotor)
             self.all_a_to_z_info.append(rotor_a_to_z)
             self.all_rotor_notches.append(rotor_notch)
-        return self.all_rotors_info, self.all_a_to_z_info
+        return self.all_rotors_info, self.all_a_to_z_info, self.all_rotor_notches
 
     def set_multiple_rotor_positions(self, all_rotors_info, all_a_to_z_info, all_rotor_positions):
         all_rotor_positions = all_rotor_positions.split()

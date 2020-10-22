@@ -20,4 +20,5 @@ class Reflector:
 
     def encode_reflector(self, named_reflector, reflector_a_to_z, position, character):
         character = named_reflector[position]
+        print(f'Reflector coded to: {character}')
         return position, character
