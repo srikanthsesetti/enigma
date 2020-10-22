@@ -29,3 +29,25 @@ class MultipleRotors:
             positioned_rotor_list.append(positioned_rotor)
             positioned_a_to_z_list.append(positioned_a_to_z)
         return positioned_rotor_list, positioned_a_to_z_list
+
+    def set_multiple_rotor_notches(self, positioned_rotor_list, positioned_a_to_z_list, rotor_notch_list):
+        # turn the middle one if right rotor is on notch
+        if positioned_rotor_list[-1][0] == rotor_notch_list[-1]:
+            print('third rotor on notch')
+            # turn the left rotor if middle rotor is on notch
+            if positioned_rotor_list[1][0] == rotor_notch_list[1]:
+                print('middle rotor on notch')
+                # turn the left rotor. middle rotor will be turned outside this if statement
+                turn_left_rotor = SingleRotor()
+                positioned_rotor_list[0], positioned_a_to_z_list[0] = \
+                    turn_left_rotor.turn_rotor(positioned_rotor_list[0], positioned_a_to_z_list[0])
+            # now turn the middle rotor. right rotor will always be turned outside this if statement
+            turn_middle_rotor = SingleRotor()
+            positioned_rotor_list[-2], positioned_a_to_z_list[-2] = \
+                turn_middle_rotor.turn_rotor(positioned_rotor_list[-2], positioned_a_to_z_list[-2])
+
+        # turn the right rotor before encoding
+        turn_right_rotor = SingleRotor()
+        positioned_rotor_list[-1], positioned_a_to_z_list[-1] = \
+            turn_right_rotor.turn_rotor(positioned_rotor_list[-1], positioned_a_to_z_list[-1])
+        return positioned_rotor_list, positioned_a_to_z_list, rotor_notch_list
