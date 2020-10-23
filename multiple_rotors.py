@@ -40,21 +40,24 @@ class MultipleRotors:
         return positioned_rotor_list, positioned_a_to_z_list
 
     def set_multiple_rotor_notches(self, positioned_rotor_list, positioned_a_to_z_list, rotor_notch_list):
+        print('in rotor notches function')
         if len(positioned_rotor_list) == 3:
-            if rotor_notch_list[-1] != '' and positioned_rotor_list[-1][0] == rotor_notch_list[-1]:
+            print('rotor notches are 3')
+            print(positioned_a_to_z_list)
+            if rotor_notch_list[-1] != '' and positioned_a_to_z_list[-1][0] == rotor_notch_list[-1]:
                 print('right rotor on notch')
-                if rotor_notch_list[1] != '' and positioned_rotor_list[1][0] == rotor_notch_list[1]:
+                if rotor_notch_list[1] != '' and positioned_a_to_z_list[1][0] == rotor_notch_list[1]:
                     print('middle rotor on notch')
                     # turn the left rotor
                     turn_left_rotor = SingleRotor()
                     positioned_rotor_list[0], positioned_a_to_z_list[0] = \
                         turn_left_rotor.turn_rotor(positioned_rotor_list[0], positioned_a_to_z_list[0])
-                    # now turn the middle rotor
-                    turn_middle_rotor = SingleRotor()
-                    positioned_rotor_list[1], positioned_a_to_z_list[1] = \
-                        turn_middle_rotor.turn_rotor(positioned_rotor_list[1], positioned_a_to_z_list[1])
+                # now turn the middle rotor
+                turn_middle_rotor = SingleRotor()
+                positioned_rotor_list[1], positioned_a_to_z_list[1] = \
+                    turn_middle_rotor.turn_rotor(positioned_rotor_list[1], positioned_a_to_z_list[1])
 
-            elif rotor_notch_list[1] != '' and positioned_rotor_list[1][0] == rotor_notch_list[1]:
+            elif rotor_notch_list[1] != '' and positioned_a_to_z_list[1][0] == rotor_notch_list[1]:
                 print('right rotor is not on notch but middle rotor on notch')
                 # turn the left rotor
                 turn_left_rotor = SingleRotor()
@@ -65,7 +68,7 @@ class MultipleRotors:
                 positioned_rotor_list[1], positioned_a_to_z_list[1] = \
                     turn_middle_rotor.turn_rotor(positioned_rotor_list[1], positioned_a_to_z_list[1])
 
-            elif rotor_notch_list[1] != '' and positioned_rotor_list[0][0] == rotor_notch_list[0]:
+            elif rotor_notch_list[1] != '' and positioned_a_to_z_list[0][0] == rotor_notch_list[0]:
                 print('right and middle rotors are not on notch but left on notch')
                 # turn the left rotor
                 turn_left_rotor = SingleRotor()
@@ -78,33 +81,30 @@ class MultipleRotors:
                 turn_right_rotor.turn_rotor(positioned_rotor_list[-1], positioned_a_to_z_list[-1])
             return positioned_rotor_list, positioned_a_to_z_list, rotor_notch_list
         else:
-            if rotor_notch_list[-1] != '' and positioned_rotor_list[-1][0] == rotor_notch_list[-1]:
+            print('rotor notches are 4')
+            if rotor_notch_list[-1] != '' and positioned_a_to_z_list[-1][0] == rotor_notch_list[-1]:
                 print('right rotor on notch')
-                if rotor_notch_list[-2] != '' and positioned_rotor_list[-2][0] == rotor_notch_list[-2]:
+                if rotor_notch_list[-2] != '' and positioned_a_to_z_list[-2][0] == rotor_notch_list[-2]:
                     print('second from right rotor on notch')
-                    if rotor_notch_list[-3] != '' and positioned_rotor_list[-3][0] == rotor_notch_list[-3]:
-                        print('third from right rotor on notch')
-                        # now turn the third from right rotor.
-                        turn_middle_rotor = SingleRotor()
-                        positioned_rotor_list[-3], positioned_a_to_z_list[-3] = \
-                            turn_middle_rotor.turn_rotor(positioned_rotor_list[-3], positioned_a_to_z_list[-3])
-                        # now turn the second from right rotor
-                        turn_middle_rotor = SingleRotor()
-                        positioned_rotor_list[-2], positioned_a_to_z_list[-2] = \
-                            turn_middle_rotor.turn_rotor(positioned_rotor_list[-2], positioned_a_to_z_list[-2])
-            elif rotor_notch_list[-2] != '' and positioned_rotor_list[-2][0] == rotor_notch_list[-2]:
-                print('second from right rotor on notch')
-                if rotor_notch_list[-3] != '' and positioned_rotor_list[-3][0] == rotor_notch_list[-3]:
-                    print('third from right rotor on notch')
                     # now turn the third from right rotor.
                     turn_middle_rotor = SingleRotor()
                     positioned_rotor_list[-3], positioned_a_to_z_list[-3] = \
                         turn_middle_rotor.turn_rotor(positioned_rotor_list[-3], positioned_a_to_z_list[-3])
-                    # now turn the second from right rotor
-                    turn_middle_rotor = SingleRotor()
-                    positioned_rotor_list[-2], positioned_a_to_z_list[-2] = \
-                        turn_middle_rotor.turn_rotor(positioned_rotor_list[-2], positioned_a_to_z_list[-2])
-            elif rotor_notch_list[-3] != '' and positioned_rotor_list[-3][0] == rotor_notch_list[-3]:
+                # now turn the second from right rotor
+                turn_middle_rotor = SingleRotor()
+                positioned_rotor_list[-2], positioned_a_to_z_list[-2] = \
+                    turn_middle_rotor.turn_rotor(positioned_rotor_list[-2], positioned_a_to_z_list[-2])
+            elif rotor_notch_list[-2] != '' and positioned_a_to_z_list[-2][0] == rotor_notch_list[-2]:
+                print('second from right rotor on notch')
+                # now turn the third from right rotor.
+                turn_middle_rotor = SingleRotor()
+                positioned_rotor_list[-3], positioned_a_to_z_list[-3] = \
+                    turn_middle_rotor.turn_rotor(positioned_rotor_list[-3], positioned_a_to_z_list[-3])
+                # now turn the second from right rotor
+                turn_middle_rotor = SingleRotor()
+                positioned_rotor_list[-2], positioned_a_to_z_list[-2] = \
+                    turn_middle_rotor.turn_rotor(positioned_rotor_list[-2], positioned_a_to_z_list[-2])
+            elif rotor_notch_list[-3] != '' and positioned_a_to_z_list[-3][0] == rotor_notch_list[-3]:
                 print('third from right rotor on notch')
                 # now turn the third from right rotor.
                 turn_middle_rotor = SingleRotor()

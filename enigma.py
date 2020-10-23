@@ -71,6 +71,17 @@ if __name__ == "__main__":
     Delete at the end
     """
 
-    coded_message = run_enigma("HL MO AJ CX BZ SR NI YW DG PK", "I II III", "B", "A A Z", "HELLOWORLD")
-    # print(f'Coded message is: {coded_message}')
-    print(coded_message == 'RFKTMBXVVW')
+    coded_message1 = run_enigma("HL MO AJ CX BZ SR NI YW DG PK", "I II III", "B", "A A Z", "01 01 01", "HELLOWORLD")
+    # print(f'Coded message is: {coded_message1}')
+    print(coded_message1 == 'RFKTMBXVVW')
+
+    #
+    coded_message2 = run_enigma("PC XZ FM QA ST NB HY OR EV IU", "IV V Beta I", "A", "E Z G P", "18 24 03 05", "BUPXWJCDPFASXBDHLBBIBSRNWCSZXQOLBNXYAXVHOGCUUIBCVMPUZYUUKHI")
+    print(f'Coded message is: {coded_message2}')
+
+    # coded_message3 = run_enigma("AT LU NR IG", "III II I GAMMA", "A", "V E Q J", "4 24 17 7", "AAAAAAAAAAAAAAAAAAAAAA")
+    # print(f'Coded message is: {coded_message3}')
+
+    # coded_message4 = run_enigma("", "I II III", "B", "A A A", "01 02 03", "AAAAAAAAAAAAAAAAAAAAAA")
+    # # print(f'Coded message is: {coded_message4}')
+    # print(coded_message4 == 'GGFEBRZUOENGGILYLOVDLB')
