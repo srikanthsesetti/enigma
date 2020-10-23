@@ -31,12 +31,12 @@ class SingleRotor:
             v_a_to_z = self.rotor_instance.get_rotor('A to Z')
             v_notch = self.rotor_instance.get_rotor_notch(name)
             return v, v_a_to_z, v_notch
-        elif name == 'beta':
+        elif name == 'BETA':
             beta = self.rotor_instance.get_rotor(name)
             beta_a_to_z = self.rotor_instance.get_rotor('A to Z')
             beta_notch = self.rotor_instance.get_rotor_notch(name)
             return beta, beta_a_to_z, beta_notch
-        elif name == 'gamma':
+        elif name == 'GAMMA':
             gamma = self.rotor_instance.get_rotor(name)
             gamma_a_to_z = self.rotor_instance.get_rotor('A to Z')
             gamma_notch = self.rotor_instance.get_rotor_notch(name)

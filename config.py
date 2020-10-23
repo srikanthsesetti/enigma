@@ -27,11 +27,13 @@ class Config:
         self.iii_notch = 'V'
         self.iv_notch = 'J'
         self.v_notch = 'Z'
+        self.beta_notch = ''
+        self.gamma_notch = ''
 
     def get_rotor(self, name):
-        if name == 'beta':
+        if name == 'BETA':
             return self.beta
-        if name == 'gamma':
+        if name == 'GAMMA':
             return self.gamma
         if name == 'I':
             return self.i
@@ -63,7 +65,7 @@ class Config:
             return self.iv_notch
         if name == 'V':
             return self.v_notch
-        if name == 'beta':
-            return ''
-        if name == 'gamma':
-            return ''
+        if name == 'BETA':
+            return self.beta_notch
+        if name == 'GAMMA':
+            return self.gamma_notch
