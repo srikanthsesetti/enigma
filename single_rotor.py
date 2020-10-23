@@ -68,7 +68,10 @@ class SingleRotor:
                 print(f'LTR coded to: {a_to_z[i]}')
                 return i, character
 
-    # def set_single_rotor_setting(self, rotor, position):
-    #     position -= 1
-    #     rotor = rotor[-position:] + rotor[: -position]
-    #     return rotor
+    def set_single_rotor_setting(self, rotor, position):
+        position = int(position)
+        print(f'found the rotor setting to be {position}')
+        position -= 1
+        print(f'so changed rotor setting to {position}')
+        rotor = rotor[-position:] + rotor[: -position]
+        return rotor

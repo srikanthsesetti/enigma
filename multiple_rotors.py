@@ -17,6 +17,15 @@ class MultipleRotors:
             self.all_rotor_notches.append(rotor_notch)
         return self.all_rotors_info, self.all_a_to_z_info, self.all_rotor_notches
 
+    def set_multiple_rotor_settings(self, all_rotors_info, rotor_settings):
+        rotor_settings = rotor_settings.split()
+        set_rotor_info = []
+        for i in range(len(all_rotors_info)):
+            single_rotor = SingleRotor()
+            rotor_info = single_rotor.set_single_rotor_setting(all_rotors_info[i], rotor_settings[i])
+            set_rotor_info.append(rotor_info)
+        return set_rotor_info
+
     def set_multiple_rotor_positions(self, all_rotors_info, all_a_to_z_info, all_rotor_positions):
         all_rotor_positions = all_rotor_positions.split()
         positioned_rotor_list = []
@@ -29,9 +38,6 @@ class MultipleRotors:
             positioned_rotor_list.append(positioned_rotor)
             positioned_a_to_z_list.append(positioned_a_to_z)
         return positioned_rotor_list, positioned_a_to_z_list
-
-    # def set_multiple_rotor_settings(self, all_rotors_info):
-
 
     def set_multiple_rotor_notches(self, positioned_rotor_list, positioned_a_to_z_list, rotor_notch_list):
         if len(positioned_rotor_list) == 3:

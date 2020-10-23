@@ -5,7 +5,7 @@ from single_rotor import *
 
 
 class TraverseRotors:
-    def __init__(self, rotors_list, reflector, rotor_positions):
+    def __init__(self, rotors_list, reflector, rotor_positions, rotor_settings):
         self.reflector = reflector
         self.positioned_rotor_list = []
         self.positioned_a_to_z_list = []
@@ -16,9 +16,14 @@ class TraverseRotors:
         all_rotors_info, all_a_to_z_info, all_rotor_notches = multiple_rotors.create_multiple_rotors(rotors_list)
         self.rotor_notch_list = all_rotor_notches
 
+        # ring settings for all rotors
+        set_rotor_info = multiple_rotors.set_multiple_rotor_settings(all_rotors_info, rotor_settings)
+
         # move rotors to the starting positions
         self.positioned_rotor_list, self.positioned_a_to_z_list,  = \
-            multiple_rotors.set_multiple_rotor_positions(all_rotors_info, all_a_to_z_info, rotor_positions)
+            multiple_rotors.set_multiple_rotor_positions(set_rotor_info, all_a_to_z_info, rotor_positions)
+        print(self.positioned_rotor_list)
+        print(self.positioned_a_to_z_list)
 
     def traverse_rotors_right_to_left(self, position, character):
         rotor_notches = MultipleRotors()
@@ -46,8 +51,6 @@ class TraverseRotors:
         for each_rotor, each_a_to_z in zip(self.positioned_rotor_list, self.positioned_a_to_z_list):
             traverse = SingleRotor()
             position, character = traverse.encode_left_to_right(each_rotor, each_a_to_z, position, character)
-        print(f'after: {character}')
         character = chr(65 + position)
-        print(f'after: {character}')
         return character
 
