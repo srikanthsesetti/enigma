@@ -69,9 +69,12 @@ class SingleRotor:
                 return i, character
 
     def set_single_rotor_setting(self, rotor, position):
+        out_rotor = ()
         position = int(position)
-        print(f'found the rotor setting to be {position}')
         position -= 1
-        print(f'so changed rotor setting to {position}')
-        rotor = rotor[-position:] + rotor[: -position]
-        return rotor
+        for char in rotor:
+            char_number = ord(char)
+            char = chr(((char_number - 65 + position) % 26) + 65)
+            out_rotor = out_rotor + (char,)
+        out_rotor = out_rotor[-position:] + out_rotor[: -position]
+        return out_rotor
