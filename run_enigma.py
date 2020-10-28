@@ -1,4 +1,3 @@
-from enigma import *
 from traverse import *
 from plugboard import *
 
@@ -25,4 +24,3 @@ def run_enigma(ten_pairs, rotors, reflector, initial_rotor_positions, initial_ro
         plugboard_end_position, plugboard_encoded_end = plugboard.encode(encoded_character_ltr)
         coded_message += plugboard_encoded_end
     return coded_message
-

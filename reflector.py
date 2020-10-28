@@ -22,3 +22,5 @@ class Reflector:
         character = named_reflector[position]
         print(f'Reflector coded to: {character}')
         return position, character
+
+
