@@ -73,9 +73,9 @@ if __name__ == "__main__":
     Delete at the end
     """
 
-    coded_message1 = run_enigma("HL MO AJ CX BZ SR NI YW DG PK", "I II III", "B", "A A Z", "01 01 01", "HELLOWORLD")
+    # coded_message1 = run_enigma("HL MO AJ CX BZ SR NI YW DG PK", "I II III", "B", "A A Z", "01 01 01", "HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLD")
     # print(f'Coded message is: {coded_message1}')
-    print(coded_message1 == 'RFKTMBXVVW')
+    # # print(coded_message1 == 'RFKTMBXVVW')
 
     # #
     # coded_message2 = run_enigma("PC XZ FM QA ST NB HY OR EV IU", "IV V Beta I", "A", "E Z G P", "18 24 03 05", "BUPXWJCDPFASXBDHLBBIBSRNWCSZXQOLBNXYAXVHOGCUUIBCVMPUZYUUKHI")
@@ -83,7 +83,38 @@ if __name__ == "__main__":
 
     # coded_message3 = run_enigma("AT LU NR IG", "III II I GAMMA", "A", "V E Q J", "4 24 17 7", "AAAAAAAAAAAAAAAAAAAAAA")
     # print(f'Coded message is: {coded_message3}')
-
+    #
     # coded_message4 = run_enigma("", "I II III", "B", "A A A", "01 02 03", "AAAAAAAAAAAAAAAAAAAAAA")
     # # print(f'Coded message is: {coded_message4}')
     # print(coded_message4 == 'GGFEBRZUOENGGILYLOVDLB')
+
+##### PASSED ####
+assert(run_enigma("", "I II III", "B", "A A A", "01 01 01", "s") == "J")
+assert(run_enigma("", "I II III", "B", "A A A", "01 01 01", "A") == "B")
+assert(run_enigma("", "IV V Beta", "B", "A A A", "14 09 24", "H") == "Y")
+assert(run_enigma("", "I II III", "B", "a a V", "01 01 01", "D") == "O")
+assert(run_enigma("", "I II III", "B", "a e V", "01 01 01", "D") == "Z")
+assert(run_enigma("", "I II III", "B", "a e V", "01 01 01", "F") == "W")
+assert(run_enigma("", "I II III", "B", "a e V", "01 01 01", "HELLO") == "VDXRE")
+assert(run_enigma("", "I II III", "B", "a e A", "01 01 01", "H") == "I")
+assert(run_enigma("", "I II III", "B", "G G G", "01 01 01", "H") == "J")
+assert(run_enigma("", "I II III", "B", "Q E V", "02 02 02", "L") == "Z")
+assert(run_enigma("", "I II III", "B", "Q E V", "02 02 02", "Y") == "B")
+assert(run_enigma("", "I II III", "B", "Q E V", "01 01 01", "A") == "L")
+assert(run_enigma("", "I II III", "B", "b e V", "01 01 01", "H") == "N")
+assert(run_enigma("", "I II III", "B", "A A Z", "01 01 01", "A") == "U")
+assert(run_enigma("HL MO AJ CX BZ SR NI YW DG PK", "I II III", "B", "A A Z", "01 01 01", "HELLOWORLD") == "RFKTMBXVVW")
+assert(run_enigma("", "I II III", "B", "Q E V", "4 1 1", "A") == "S")
+assert(run_enigma("", "I II III", "B", "Q E V", "6 1 1", "A") == "J")
+assert(run_enigma("", "I II III", "B", "Q E V", "6 1 1", "HELLOWORLD") == "TIOAHHWPGC")
+assert(run_enigma("", "I II III", "B", "Q E V", "10 2 1", "H") == "T")
+assert(run_enigma("", "I II III", "C", "Q E V", "07 11 15", "Z") == "M")
+assert(run_enigma("", "IV I II III", "C", "A A A A", "1 1 1 1", "Z") == "V")
+assert(run_enigma("", "I II III IV", "C", "Q E V Z", "07 11 15 19", "Z") == "V")
+
+
+
+
+
+
+
