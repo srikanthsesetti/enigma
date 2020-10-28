@@ -1,0 +1,4 @@
+__pycache__
+*test.py
+../enigma/.ipynb_checkpoints/
+*.ipynb
