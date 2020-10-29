@@ -85,7 +85,7 @@ class MultipleRotors:
                     turn_middle_rotor.turn_rotor(positioned_rotor_list[1], positioned_a_to_z_list[1])
                 rotor_moved[1] = True
 
-            elif rotor_notch_list[0] != '' and positioned_a_to_z_list[0][0] == rotor_notch_list[0]:
+            elif rotor_notch_list[1] != '' and positioned_a_to_z_list[0][0] == rotor_notch_list[0]:
                 # print('right and middle rotors are not on notch but left on notch')
                 # print('turn left rotor')
                 # turn the left rotor
