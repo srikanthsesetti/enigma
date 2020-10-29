@@ -34,11 +34,11 @@ class Plugboard:
     def encode(self, character):
         if character in self.plug_connections:
             position = string.ascii_lowercase.index(self.plug_connections[character].lower())
-            print(f'Plugboard coded to: {self.plug_connections[character]}')
+            # print(f'Plugboard coded to: {self.plug_connections[character]}')
             return position, self.plug_connections[character]
         else:
             position = string.ascii_lowercase.index(character.lower())
-            print(f'Not found {character} in Plugboard, so coded to: {character}')
+            # print(f'Not found {character} in Plugboard, so coded to: {character}')
             return position, character
 
     def add(self, plugs):
