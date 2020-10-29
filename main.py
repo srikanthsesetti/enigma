@@ -88,7 +88,7 @@ if __name__ == "__main__":
     # # print(f'Coded message is: {coded_message4}')
     # print(coded_message4 == 'GGFEBRZUOENGGILYLOVDLB')
 
-##### PASSED ####
+#### PASSED ####
 assert(run_enigma("", "I II III", "B", "A A A", "01 01 01", "s") == "J")
 assert(run_enigma("", "I II III", "B", "A A A", "01 01 01", "A") == "B")
 assert(run_enigma("", "IV V Beta", "B", "A A A", "14 09 24", "H") == "Y")
@@ -106,7 +106,7 @@ assert(run_enigma("", "I II III", "B", "A A Z", "01 01 01", "A") == "U")
 assert(run_enigma("HL MO AJ CX BZ SR NI YW DG PK", "I II III", "B", "A A Z", "01 01 01", "HELLOWORLD") == "RFKTMBXVVW")
 assert(run_enigma("", "I II III", "B", "Q E V", "4 1 1", "A") == "S")
 assert(run_enigma("", "I II III", "B", "Q E V", "6 1 1", "A") == "J")
-assert(run_enigma("", "I II III", "B", "Q E V", "6 1 1", "HELLOWORLD") == "TIOAHHWPGC")
+assert(run_enigma("", "I II III", "B", "Q E V", "6 1 1", "TIOAHHWPGC") == "HELLOWORLD")
 assert(run_enigma("", "I II III", "B", "Q E V", "10 2 1", "H") == "T")
 assert(run_enigma("", "I II III", "C", "Q E V", "07 11 15", "Z") == "M")
 assert(run_enigma("", "IV I II III", "C", "A A A A", "1 1 1 1", "Z") == "V")
