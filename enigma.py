@@ -72,7 +72,3 @@ class rotor_from_name:
                 # character = rotor[i]
                 # print(f'LTR coded to: {a_to_z[i]}')
                 return self.a_to_z[i]
-
-
-
-
