@@ -14,7 +14,8 @@ class PlugLead:
         else:
             return character
 
-    def is_valid_lead(self, mapping):
+    @staticmethod
+    def is_valid_lead(mapping):
         if len(mapping) == 2 and mapping[0] != mapping[1]:
             return True
         elif len(mapping) == 2 and mapping[0] == mapping[1]:

@@ -21,7 +21,8 @@ class MultipleRotors:
             self.rotor_offsets.append(0)
         return self.all_rotors_info, self.all_a_to_z_info, self.all_rotor_notches, self.rotors_moved, self.rotor_offsets
 
-    def set_multiple_rotor_settings(self, all_rotors_info, rotor_settings):
+    @staticmethod
+    def set_multiple_rotor_settings(all_rotors_info, rotor_settings):
         rotor_settings = rotor_settings.split()
         set_rotor_info = []
         for i in range(len(all_rotors_info)):
@@ -30,7 +31,8 @@ class MultipleRotors:
             set_rotor_info.append(rotor_info)
         return set_rotor_info
 
-    def set_multiple_rotor_positions(self, all_rotors_info, all_a_to_z_info, all_rotor_positions):
+    @staticmethod
+    def set_multiple_rotor_positions(all_rotors_info, all_a_to_z_info, all_rotor_positions):
         all_rotor_positions = all_rotor_positions.split()
         positioned_rotor_list = []
         positioned_a_to_z_list = []
@@ -43,7 +45,8 @@ class MultipleRotors:
             positioned_a_to_z_list.append(positioned_a_to_z)
         return positioned_rotor_list, positioned_a_to_z_list
 
-    def set_multiple_rotor_notches(self, positioned_rotor_list, positioned_a_to_z_list, rotor_notch_list, rotor_moved):
+    @staticmethod
+    def set_multiple_rotor_notches(positioned_rotor_list, positioned_a_to_z_list, rotor_notch_list, rotor_moved):
         if len(positioned_rotor_list) == 3:
             if rotor_notch_list[-1] != '' and positioned_a_to_z_list[-1][0] == rotor_notch_list[-1]:
                 if rotor_notch_list[1] != '' and positioned_a_to_z_list[1][0] == rotor_notch_list[1]:

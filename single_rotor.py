@@ -41,31 +41,38 @@ class SingleRotor:
             gamma_a_to_z = self.rotor_instance.get_rotor('A to Z')
             gamma_notch = self.rotor_instance.get_rotor_notch(name)
             return gamma, gamma_a_to_z, gamma_notch
+        else:
+            raise ValueError
 
-    def set_single_rotor_position(self, rotor, a_to_z, rotor_position):
+    @staticmethod
+    def set_single_rotor_position(rotor, a_to_z, rotor_position):
         char_index = a_to_z.index(rotor_position)
         rotor = rotor[char_index:] + rotor[: char_index]
         rotor_a_to_z = a_to_z[char_index:] + a_to_z[: char_index]
         return rotor, rotor_a_to_z
 
-    def turn_rotor(self, rotor, a_to_z):
+    @staticmethod
+    def turn_rotor(rotor, a_to_z):
         rotor = rotor[1:] + rotor[: 1]
         rotor_a_to_z = a_to_z[1:] + a_to_z[: 1]
         return rotor, rotor_a_to_z
 
-    def encode_right_to_left(self, rotor, a_to_z, position, character):
+    @staticmethod
+    def encode_right_to_left(rotor, a_to_z, position, character):
         character = rotor[position]
         for i, item in enumerate(a_to_z):
             if item == character:
                 return i, character
 
-    def encode_left_to_right(self, rotor, a_to_z, position, character):
+    @staticmethod
+    def encode_left_to_right(rotor, a_to_z, position, character):
         character = a_to_z[position]
         for i, item in enumerate(rotor):
             if item == character:
                 return i, character
 
-    def set_single_rotor_setting(self, rotor, position):
+    @staticmethod
+    def set_single_rotor_setting(rotor, position):
         out_rotor = ()
         position = int(position)
         position -= 1
