@@ -59,16 +59,11 @@ class rotor_from_name:
         self.a_to_z = rotor_instance.get_rotor('A to Z')
 
     def encode_right_to_left(self, character):
-        # character = self.named_rotor[character]
-        # print(f'RTL coded to: {character}')
         for i, item in enumerate(self.a_to_z):
             if item == character:
                 return self.named_rotor[i]
 
     def encode_left_to_right(self, character):
-        # character = a_to_z[position]
         for i, item in enumerate(self.named_rotor):
             if item == character:
-                # character = rotor[i]
-                # print(f'LTR coded to: {a_to_z[i]}')
                 return self.a_to_z[i]

@@ -55,7 +55,6 @@ class SingleRotor:
 
     def encode_right_to_left(self, rotor, a_to_z, position, character):
         character = rotor[position]
-        # print(f'RTL coded to: {character}')
         for i, item in enumerate(a_to_z):
             if item == character:
                 return i, character
@@ -64,8 +63,6 @@ class SingleRotor:
         character = a_to_z[position]
         for i, item in enumerate(rotor):
             if item == character:
-                # character = rotor[i]
-                # print(f'LTR coded to: {character}')
                 return i, character
 
     def set_single_rotor_setting(self, rotor, position):
