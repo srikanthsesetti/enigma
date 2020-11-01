@@ -9,5 +9,11 @@ from interactive_console import *
 
 if __name__ == "__main__":
     enigma = RunInteractiveEnigma()
+    enigma.get_valid_plugboard_pairs()
+    enigma.get_valid_rotors()
+    enigma.get_valid_reflector()
+    enigma.get_valid_rotor_positions()
+    enigma.get_valid_rotor_settings()
+    enigma.get_message_to_encode()
     coded_message = enigma.run_interactive_enigma()
     print(f'Coded message is: {coded_message}')

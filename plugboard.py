@@ -58,5 +58,3 @@ class Plugboard:
                 print('Please provide maximum 10 valid plugs; '
                       'a plug can connect to just one other plug and cannot connect to itself')
                 sys.exit(1)
-
-
