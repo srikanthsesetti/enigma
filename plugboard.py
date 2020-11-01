@@ -1,4 +1,5 @@
 import string
+import sys
 
 
 class PlugLead:
@@ -18,8 +19,6 @@ class PlugLead:
     def is_valid_lead(mapping):
         if len(mapping) == 2 and mapping[0] != mapping[1]:
             return True
-        elif len(mapping) == 2 and mapping[0] == mapping[1]:
-            raise ValueError
         else:
             return False
 
@@ -43,9 +42,21 @@ class Plugboard:
     def add(self, plugs):
         if not self.is_plugboard_full():
             self.plug_connections.update(plugs.dict_map)
+        else:
+            raise ValueError('Maximum 10 plug leads are allowed to connect')
 
     def ten_pairs(self, full_list):
         plug_list = full_list.split()
         for plug in plug_list:
-            create_plug = PlugLead(plug)
-            self.add(create_plug)
+            try:
+                if PlugLead.is_valid_lead(plug) and not self.is_plugboard_full():
+                    create_plug = PlugLead(plug)
+                    self.add(create_plug)
+                else:
+                    raise ValueError
+            except ValueError:
+                print('Please provide maximum 10 valid plugs; '
+                      'a plug can connect to just one other plug and cannot connect to itself')
+                sys.exit(1)
+
+
