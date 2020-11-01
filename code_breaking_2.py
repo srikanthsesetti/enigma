@@ -1,8 +1,11 @@
+"""
+All known settings are declared upfront
+Run this python file to see the decoded message and missing ring positions
+"""
+
 from run_enigma import *
 import itertools
 import string
-
-# Run this python file to see the decoded message
 
 plugboard_pairs = "VH PT ZG BJ EY FS"
 reflector = "B"

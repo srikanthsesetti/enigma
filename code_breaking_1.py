@@ -1,6 +1,10 @@
+"""
+All known settings are declared upfront
+Run this python file to see the details of the reflector used and the decoded message
+"""
+
 from run_enigma import *
 
-# Run this python file to see the details of the reflector used and the decoded message
 plugboard_pairs = "KI XN FL"
 reflectors = "ABC"
 crib = "SECRETS"
