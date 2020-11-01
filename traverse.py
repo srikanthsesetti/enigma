@@ -74,7 +74,7 @@ class TraverseRotors:
             return character
 
         elif len(self.positioned_rotor_list) == 4:
-            # traverse left most rotor
+            # add offset and traverse left most rotor
             offset = ord(self.positioned_a_to_z_list[0][0]) - 65
             char_number1 = ord(character)
             character = chr(((char_number1 + offset - 65) % 26) + 65)
