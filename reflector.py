@@ -17,6 +17,8 @@ class Reflector:
             reflectorc = self.reflector_instance.get_rotor(name)
             reflectorc_a_to_z = self.reflector_instance.get_rotor('A to Z')
             return reflectorc, reflectorc_a_to_z
+        else:
+            return ValueError
 
     @staticmethod
     def encode_reflector(named_reflector, reflector_a_to_z, position, character):
