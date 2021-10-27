@@ -17,4 +17,5 @@ This will send each character in the message through the machine and stores the 
 Once the whole message is encoded the result is returned to the original main.py file.
 
 **Known Issues**
+
 Currently there's an issue with encoding/decoding using a 4 rotor machine.
