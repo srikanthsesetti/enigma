@@ -1,4 +1,4 @@
-# enigma
+# Enigma
 An interactive console (CLI) is created to demonstrate working Enigma machine
 
 This console takes settings and a message to encode/decode as user input
@@ -15,3 +15,6 @@ If the input is valid then a prompt will be displayed for the next setting. If n
 Once all settings are entered by the user, encoding request is sent to run_enigma class in run_enigma.py file. 
 This will send each character in the message through the machine and stores the enocded result until all characters are encoded. 
 Once the whole message is encoded the result is returned to the original main.py file.
+
+**Known Issues**
+Currently there's an issue with encoding/decoding using a 4 rotor machine.
